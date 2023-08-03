@@ -1,0 +1,38 @@
+<div mat-dialog-title> Add Category </div>
+    <form (ngSubmit)="formSubmit()">
+        <div mat-dialog-content class="content">
+            <div class="row">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Category Name: </mat-label>
+                    <input [(ngModel)]="category.categoryName" name="categoryName" matInput
+                        placeholder="Enter Here">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Category Description: </mat-label>
+                    <textarea [(ngModel)]="category.categoryDesc" name="categoryDesc" matInput
+                        placeholder="Write Category Description"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Adding Date</mat-label>
+                    <input [(ngModel)]="category.addingDate" name="addingDate" matInput [matDatepicker]="picker">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+   
+<div mat-dialog-actions class="action">
+    <button mat-raised-button extended color="primary">
+        Add Category
+    </button>
+    <button style="margin-left: 10px;" mat-raised-button extended color="primary">
+        Clear
+    </button>
+</div>
+</form>

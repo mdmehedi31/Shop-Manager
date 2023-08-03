@@ -1,0 +1,82 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row" style="margin-top: 5%;">
+            <div class="col-md-6 offset-md-3">
+            <div class="container text-center">
+                <h1>Add Customer</h1>
+            </div>
+
+             <!--{{ category | json }}--> 
+                <form (ngSubmit)="addCustomer()">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Shop Name</mat-label>
+                        <input
+                            [(ngModel)]="customer.shopName"
+                            name="shopName"
+                        matInput placeholder="Enter Here">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Owner Name</mat-label>
+                        <input
+                            [(ngModel)]="customer.ownerName"
+                            name="ownerName"
+                        matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Shop Location</mat-label>
+                        <textarea
+                        [(ngModel)]="customer.shopLocation"
+                        name="shopLocation"
+                        matInput placeholder="Write Category Description"></textarea>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Phone Number 1</mat-label>
+                        <input
+                            [(ngModel)]="customer.phoneNo1"
+                            name="phoneNo1"
+                        matInput placeholder="Enter Here">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Phone Number 2</mat-label>
+                        <input
+                            [(ngModel)]="customer.phoneNo2"
+                            name="phoneNo2"
+                        matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Adding Date</mat-label>
+                        <input 
+                        [(ngModel)]="customer.addingDate"
+                        name="addingDate"
+                        matInput [matDatepicker]="picker">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        
+                      </mat-form-field>
+                   
+                      <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Add By</mat-label>
+                        <input
+                            [(ngModel)]="customer.addBy"
+                            name="addBy"
+                        matInput placeholder="Enter Here">
+                    </mat-form-field>
+
+                      <div class="container" style="margin-top: 10px;">
+                      <button mat-fab extended color="primary">
+                       Add Customer
+                      </button>
+                      <button style="margin-left: 10px;" mat-fab extended color="primary">
+                        Clear
+                       </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

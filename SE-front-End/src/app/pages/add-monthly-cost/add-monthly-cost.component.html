@@ -1,0 +1,112 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row" style="margin-top: 5%;">
+            <div class="col-md-6 offset-md-3">
+                <div class="container text-center">
+                    <h1>Add Monthly Cost</h1>
+                </div>
+
+                <form (ngSubmit)="addMonthlyCost()">
+                    <mat-form-field class="margin-left" appearance="outline">
+                        <mat-label>Internet Bill </mat-label>
+                        <input [(ngModel)]="monthlyC.internetPayment" name="internetPayment" (ngModelChange)="monthlyC.internetPayment=+$event;
+                        totalMonthCost()" matInput placeholder="Enter Here">
+                    </mat-form-field>
+
+                    <mat-form-field class="margin-left" appearance="outline">
+                        <mat-label>Guard Salary </mat-label>
+                        <input [(ngModel)]="monthlyC.guardSalary" name="guardSalary" (ngModelChange)="monthlyC.guardSalary=+$event;
+                        totalMonthCost()" matInput placeholder="Enter Here">
+                    </mat-form-field>
+
+                    <mat-form-field class="margin-left" appearance="outline">
+                        <mat-label>Employee Salary </mat-label>
+                        <input [(ngModel)]="monthlyC.employeeSalary" name="employeeSalary" (ngModelChange)="monthlyC.employeeSalary=+$event;
+                            totalMonthCost()" matInput placeholder="Enter Here">
+                    </mat-form-field>
+
+                    <mat-form-field class="margin-left" appearance="outline">
+                        <mat-label>Other Cost </mat-label>
+                        <input [(ngModel)]="monthlyC.otherCost" name="otherCost" (ngModelChange)="monthlyC.otherCost=+$event;
+                            totalMonthCost()" matInput placeholder="Enter Here">
+                    </mat-form-field>
+
+                    <!-- <mat-form-field class="margin-left" appearance="outline">
+                        <mat-label>Month Name </mat-label>
+                        <input [(ngModel)]="monthlyC.monthName" name="monthName" matInput placeholder="Enter Here">
+                    </mat-form-field> -->
+
+                    <mat-form-field class="margin-left" appearance="outline">
+                        <mat-label>Total Cost </mat-label>
+                        <input readonly [(ngModel)]="monthlyC.totalCost" name="totalCost" matInput
+                            placeholder="Enter Here">
+                    </mat-form-field>
+
+                    <mat-form-field class="margin-left" appearance="outline">
+                        <mat-label>Select Month</mat-label>
+                        <mat-select name="monthName" [(ngModel)]="monthlyC.monthName">
+                            <mat-option *ngFor="let c of monthName" [value]="c">{{c}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field class="margin-left" appearance="outline">
+                        <mat-label>Add By </mat-label>
+                        <input [(ngModel)]="monthlyC.addBy" name="addBy" matInput placeholder="Enter Here">
+                    </mat-form-field>
+
+                    <mat-form-field class="margin-left" appearance="outline">
+                        <mat-label>Adding Date</mat-label>
+                        <input [(ngModel)]="monthlyC.addingDate" name="addingDate" matInput [matDatepicker]="picker">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+
+                    <div class="container" style="margin-top: 10px;">
+                        <button mat-fab extended color="primary">
+                            Add Monthly Cost
+                        </button>
+                        <button style="margin-left: 10px;" mat-fab extended color="primary">
+                            Clear
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table class="monthCost_table">
+    <thead>
+        <tr>
+            <th>SL</th>
+            <th>Internet Bill</th>
+            <th>Guard Salary</th>
+            <th>Employee Salary</th>
+            <th>Other Cost</th>
+            <th>Total Cost</th>
+            <th>Month Name</th>
+            <th>Add By</th>
+            <th>Adding Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cst of monthlyCostList">
+            <td></td>
+            <td>{{cst.internetPayment}}</td>
+            <td>{{cst.guardSalary}}</td>
+            <td>{{cst.employeeSalary}}</td>
+            <td>{{cst.otherCost}}</td>
+            <td>{{cst.totalCost}}</td>
+            <td>{{cst.monthName}}</td>
+            <td>{{cst.addBy}}</td>
+            <td>{{cst.addingDate}}</td>
+            <td>
+                <button [routerLink]="'/monthly-cost-update/'+cst.mcId" style="margin-bottom: 10px; margin-left: 20px;" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                    <mat-icon>update</mat-icon>
+                  </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

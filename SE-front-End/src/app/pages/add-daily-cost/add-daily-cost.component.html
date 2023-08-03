@@ -1,0 +1,131 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row" style="margin-top: 5%;">
+            <div class="col-md-6 offset-md-3">
+                <div class="container text-center">
+                    <h1>Add Daily Cost</h1>
+                </div>
+
+                {{ dailyCost | json }}
+                <form (ngSubmit)="addDailyCost()">
+                    <mat-form-field class="margin-left" appearance="outline">
+                        <mat-label>Morning Snack </mat-label>
+                        <input 
+                        [(ngModel)]="dailyCost.morningSnack" 
+                         name="morningSnack" matInput
+                         (ngModelChange)="dailyCost.morningSnack=+$event;
+                          totalCost()"
+                            placeholder="Enter Here">
+                    </mat-form-field>
+
+                    <mat-form-field class="margin-left" appearance="outline">
+                        <mat-label>Evening Snack </mat-label>
+                        <input [(ngModel)]="dailyCost.eveningSnack" name="eveningSnack" 
+                        (ngModelChange)="dailyCost.eveningSnack=+$event;
+                            totalCost()"
+                        matInput placeholder="Enter Here">
+                    </mat-form-field>
+
+                    <mat-form-field class="margin-left" appearance="outline">
+                        <mat-label>Customer Snack </mat-label>
+                        <input [(ngModel)]="dailyCost.customerSnack" 
+                        name="customerSnack"
+                            (ngModelChange)="dailyCost.customerSnack=+$event;
+                                totalCost()"
+                            matInput
+                            placeholder="Enter Here">
+                    </mat-form-field>
+
+                    <mat-form-field class="margin-left" appearance="outline">
+                        <mat-label>Labor Charge </mat-label>
+                        <input [(ngModel)]="dailyCost.laborCharge" name="laborCharge" 
+                        (ngModelChange)="dailyCost.laborCharge=+$event;
+                        totalCost()"
+                        matInput placeholder="Enter Here">
+                    </mat-form-field>
+
+                    <mat-form-field class="margin-left" appearance="outline">
+                        <mat-label>Daily Donation </mat-label>
+                        <input [(ngModel)]="dailyCost.dailyDonation" name="dailyDonation"
+                        (ngModelChange)="dailyCost.dailyDonation=+$event;
+                            totalCost()"
+                        matInput placeholder="Enter Here">
+                    </mat-form-field>
+
+                    <mat-form-field class="margin-left" appearance="outline">
+                        <mat-label>Other Cost </mat-label>
+                        <input [(ngModel)]="dailyCost.otherCost" name="otherCost"
+                        (ngModelChange)="dailyCost.otherCost=+$event;
+                            totalCost()"
+                        matInput placeholder="Enter Here">
+                    </mat-form-field>
+
+                    <mat-form-field class="margin-left" appearance="outline">
+                        <mat-label>Total Cost </mat-label>
+                        <input readonly [(ngModel)]="dailyCost.totalDailyCost" name="totalDailyCost" matInput placeholder="Enter Here">
+                    </mat-form-field>
+
+                    <mat-form-field class="margin-left" appearance="outline">
+                        <mat-label>Adding Date</mat-label>
+                        <input [(ngModel)]="dailyCost.addingDate" name="addingDate" matInput [matDatepicker]="picker">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field class="margin-left" appearance="outline">
+                        <mat-label>Add By </mat-label>
+                        <input [(ngModel)]="dailyCost.addBy" name="addBy" matInput placeholder="Enter Here">
+                    </mat-form-field>
+                    <div class="container" style="margin-top: 10px;">
+                        <button mat-fab extended color="primary">
+                            Add Daily Cost
+                        </button>
+                        <button style="margin-left: 10px;" mat-fab extended color="primary">
+                            Clear
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table class="dayCost_table">
+
+     <thead>
+        <tr>
+            <th>SL</th>
+            <th>Morning Snack</th>
+            <th>Evening Snack</th>
+            <th>Customer Snack</th>
+            <th>Labor Charge</th>
+            <th>Donation</th>
+            <th>Other Cost</th>
+            <th>Total Cost</th>
+            <th>Date</th>
+            <th>Add By</th>
+        </tr>
+     </thead>
+
+     <tbody>
+        <tr *ngFor="let cost of dailyCostList">
+            <td></td>
+            <td>{{cost.morningSnack}}</td>
+            <td>{{cost.eveningSnack}}</td>
+            <td>{{cost.customerSnack}}</td>
+            <td>{{cost.laborCharge}}</td>
+            <td>{{cost.dailyDonation}}</td>
+            <td>{{cost.otherCost}}</td>
+            <td>{{cost.totalDailyCost}}</td>
+            <td>{{cost.addingDate}}</td>
+            <td>{{cost.addBy}}</td>
+            <td>
+                <button [routerLink]="'/daily-cost-update/'+cost.dcId" style="margin-bottom: 10px; margin-left: 20px;" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                    <mat-icon>update</mat-icon>
+                  </button>
+            </td>
+        </tr>
+     </tbody>
+</table>
