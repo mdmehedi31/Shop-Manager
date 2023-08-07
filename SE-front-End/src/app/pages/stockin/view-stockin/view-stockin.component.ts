@@ -7,6 +7,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { StockinService } from 'src/app/service/stockin.service';
 import { UpdateCategoryComponent } from '../../update/update-category/update-category.component';
 import { UpdateStockinComponent } from '../../update/update-stockin/update-stockin.component';
+import Swal from 'sweetalert2';
+import { SimpleSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-view-stockin',
@@ -30,17 +32,35 @@ export class ViewStockinComponent implements OnInit {
 
   stockIn() {
 
-    this.dialog.open(StockinComponent)
+   const dialogRef=  this.dialog.open(StockinComponent);
+
+   dialogRef.afterClosed().subscribe({
+    next:(val)=>{
+      if(val){
+
+        this.getStockInList();
+      }
+    }
+   })
   }
 
   getUpdatePage(){
-    this.dialog.open(UpdateStockinComponent)
+      const dialogRef= this.dialog.open(UpdateStockinComponent);
+      dialogRef.afterClosed().subscribe({
+        next:(val)=>{
+          if(val){
+          this.getStockInList();
+          }
+        }
+      })
   }
   dataSource!: MatTableDataSource<any>;
 
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
+ // stockin:any;
 
   displayedColumns: string[] = [
     'stockId',
@@ -67,9 +87,13 @@ export class ViewStockinComponent implements OnInit {
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
+
+      
     }
+
   }
 
+ 
   getStockInList(){
 
     this.stockInService.getStockInList().subscribe(
@@ -82,5 +106,33 @@ export class ViewStockinComponent implements OnInit {
         console.log("you got an error "+error);
       }
     )
+  }
+
+  deleteStockIn(stockId:any){
+
+    Swal.fire({
+      icon:'info',
+      title:'are you sure.?',
+      confirmButtonText:'Delete',
+      showCancelButton: true
+    }
+    ).then((result)=>{
+      if(result.isConfirmed){
+
+          this.stockInService.deleteStockInById(stockId).subscribe(
+            (data:any)=>{
+              this.getStockInList();
+              Swal.fire('Success','Stock Delete','success');
+
+            },
+            (error:any)=>{
+              Swal.fire('Error','Delete Error','error');
+
+            }
+          )
+        
+      }
+    });
+    
   }
 }

@@ -45,7 +45,7 @@ public class StockInEntity {
     private String origin;
 
     @Column(name = "total_product")
-    private Long totalProduct;
+    private int totalProduct;
 
     @Column(name="unit_price")
     private double unitPrice;
@@ -84,8 +84,11 @@ public class StockInEntity {
     private String stockInBy;
 
     @Column(name = "new_rate")
-    private Double newRate=0.0;
+    private Double newUnitRate=0.0;
 
     @Column(name = "new_product_amount")
-    private Long newProductAmount;
+    private int newProductAmount;
+
+    @Column(name = "update_stock_in_date")
+    private Date updateStockInDate;
 }

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 public class StockInControllerImpl implements StockInControllerDefinition {
@@ -23,7 +24,7 @@ public class StockInControllerImpl implements StockInControllerDefinition {
 
 
     @Override
-    public Boolean addStock(StockInEntity stockInRequest) {
+    public Boolean addStock(StockInRequest stockInRequest) {
 
         System.out.println("this is from add stock method..");
        return stockInServiceDefinition.saveStockIn(stockInRequest);
@@ -31,14 +32,22 @@ public class StockInControllerImpl implements StockInControllerDefinition {
     }
 
     @Override
-    public String updateStock(StockInRequest stockInRequest) {
-
-        return null;
+    public StockInEntity getStockById(Long id) {
+        return this.stockInServiceDefinition.getStockInById(id);
     }
 
     @Override
-    public String deleteStock(Long id) {
-        return null;
+    public void updateStock(StockInRequest stockInRequest) {
+
+        this.stockInServiceDefinition.updateStockIn(stockInRequest);
+    }
+
+
+    @Override
+    public void deleteStock(Long id) {
+       // this.stockInServiceDefinition;
+
+        this.stockInServiceDefinition.deleteStockIn(id);
     }
 
     @Override
@@ -62,7 +71,7 @@ public class StockInControllerImpl implements StockInControllerDefinition {
     }
 
     @Override
-    public List<String> getOriginByCategoryName(String categoryName) {
+    public Set<String> getOriginByCategoryName(String categoryName) {
 
         return stockInServiceDefinition.getOriginByCategoryName(categoryName);
     }

@@ -7,25 +7,27 @@ import com.shopmanagement.entity.StockInEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+import java.util.Set;
 
 
 public interface StockInServiceDefinition {
 
 
 
-   Boolean saveStockIn(StockInEntity stockInRequest);
-   StockInEntity dtoToEntity(StockInEntity stockInRequest);
+   Boolean saveStockIn(StockInRequest stockInRequest);
+   StockInEntity dtoToEntity(StockInRequest stockInRequest);
 
+   void updateStockIn(StockInRequest stockInRequest);
+
+   void  deleteStockIn(Long stockId);
+   StockInEntity getStockInById(Long stId);
    List<StockInResponse> getAllStockProduct();
 
    List<String> getProductByCategoryAndBrandName(String category, String brandName);
 
-   List<String> getOriginByCategoryName(String categoryName);
+   Set<String> getOriginByCategoryName(String categoryName);
    StockInResponse entityToDto(StockInEntity stockInEntity);
 
-   Boolean isExistByCategoryNameAndBrandNameAndProductName(String categoryName,
-
-                                                                            String brandName,String productName);
+   Boolean isExistByCategoryNameAndBrandNameAndProductName(String categoryName,String brandName,String productName);
 
 }

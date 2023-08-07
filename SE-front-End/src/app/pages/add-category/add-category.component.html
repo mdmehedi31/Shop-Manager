@@ -28,11 +28,11 @@
         </div>
    
 <div mat-dialog-actions class="action">
-    <button mat-raised-button extended color="primary">
+    <button mat-raised-button extended type="submit" color="primary">
         Add Category
     </button>
-    <button style="margin-left: 10px;" mat-raised-button extended color="primary">
-        Clear
+    <button style="margin-left: 10px;" mat-raised-button extended color="primary" type="button" [mat-dialog-close]="false">
+        Cencle
     </button>
 </div>
 </form>

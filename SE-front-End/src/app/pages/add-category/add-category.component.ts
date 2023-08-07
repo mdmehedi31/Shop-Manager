@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { DialogRef } from '@angular/cdk/dialog';
 import { ViewCategoryComponent } from './view-category/view-category.component';
 import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-add-category',
   templateUrl: './add-category.component.html',
@@ -15,7 +16,7 @@ export class AddCategoryComponent implements OnInit {
 
 
      constructor(private categoryService : AddCategoryService,
-      private snack: MatSnackBar, private ref: DialogRef<ViewCategoryComponent>,
+      private snack: MatSnackBar, private ref: MatDialogRef<ViewCategoryComponent>,
       private router: Router
       ){}
 
@@ -103,8 +104,8 @@ export class AddCategoryComponent implements OnInit {
          
 
           Swal.fire('Success','Category Added Successfully','success');
-          this.ref.close();
-          this.router.navigate(['/category-list']);
+          this.ref.close(true);
+         
   
         },
         (error)=>{

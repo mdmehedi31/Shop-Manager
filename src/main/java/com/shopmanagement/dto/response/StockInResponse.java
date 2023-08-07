@@ -17,7 +17,7 @@ public class StockInResponse {
     private String categoryName;
     private String productName;
     private String origin;
-    private Long totalProduct;
+    private int totalProduct;
     private Double unitPrice;
     private Double totalProductPrice;
     private String productDescription;
@@ -30,7 +30,10 @@ public class StockInResponse {
     private String wearHouseShelfLevelNo;
     private Date stockInDate;
     private String stockInBy;
-    private Double newRate;
-    private Long newProductAmount;
+    private Double newUnitRate;
+    private int newProductAmount;
+    private Date updateStockInDate;
+
+
 
 }

@@ -1,10 +1,147 @@
-<div class="mat-dialog-title">
-  Update Stock In
-</div>
+<div class="mat-dialog-title">Update Stock In</div>
 
-<form action="">
+{{ stock | json }}
+<form (ngSubmit)="stockInProduct()">
 
   <div mat-dialog-content class="content">
 
+     <div class="row">
+
+      <mat-form-field class="margin-left" appearance="outline">
+        <mat-label>Product Amount</mat-label>
+        <input name="categoryName" [(ngModel)]="stock.categoryName" matInput placeholder="Enter Here">
+      </mat-form-field>
+
+
+      
+      <mat-form-field class="margin-left" appearance="outline">
+        <mat-label>Product Amount</mat-label>
+        <input name="brandName" [(ngModel)]="stock.brandName" matInput placeholder="Enter Here">
+      </mat-form-field>
+ 
+      
+      <mat-form-field class="margin-left" appearance="outline">
+        <mat-label>Product Amount</mat-label>
+        <input name="origin" [(ngModel)]="stock.origin" matInput placeholder="Enter Here">
+      </mat-form-field> 
+
+    <mat-form-field class="margin-left" appearance="outline">
+      <mat-label>Product Name</mat-label>
+      <input name="productName" [(ngModel)]="stock.productName" matInput placeholder="Enter Here">
+    </mat-form-field>
+
+    </div>
+    <div class="row">
+    
+      <mat-form-field class="margin-left" appearance="outline">
+        <mat-label>New Product Amount</mat-label>
+        <input name="newProductAmount" [(ngModel)]="stock.newProductAmount" matInput placeholder="Enter Here">
+      </mat-form-field>
+
+      <mat-form-field class="margin-left" appearance="outline">
+        <mat-label>New Unit Price</mat-label>
+        <input name="newUnitRate"  [(ngModel)]="stock.newUnitRate" matInput placeholder="Enter Here">
+      </mat-form-field>
+
+      <mat-form-field class="margin-left" appearance="outline">
+        <mat-label>Present Product Amount</mat-label>
+        <input name="totalProduct" [(ngModel)]="stock.totalProduct" readonly matInput placeholder="Enter Here">
+      </mat-form-field>
+      <!-- (ngModelChange)="stockIn.totalProduct=+$event; totalProduct()" -->
+      <mat-form-field class="margin-left" appearance="outline">
+        <mat-label>Present Unit Price </mat-label>
+        <input name="unitPrice" [(ngModel)]="stock.unitPrice" readonly matInput placeholder="Enter Here">
+      </mat-form-field>
+  
+     </div>
+
+
+      <div class="row">
+
+        <mat-form-field class="margin-left" appearance="outline">
+          <mat-label>Present Total Price</mat-label>
+          <input name="totalProductPrice" [(ngModel)]="stock.totalProductPrice" readonly matInput placeholder="Enter Here">
+        </mat-form-field>
+        
+        <mat-form-field class="margin-left" appearance="outline">
+          <mat-label>Unit Selling Price</mat-label>
+          <input name="unitSellingPrice" [(ngModel)]="stock.unitSellingPrice" matInput placeholder="Enter Here">
+        </mat-form-field>
+
+        <mat-form-field class="margin-left" appearance="outline">
+          <mat-label>Description </mat-label>
+          <textarea  name="productDescription" [(ngModel)]="stock.productDescription" matInput cdkTextareaAutosize
+          #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="1.5"
+            placeholder="Enter Here"></textarea>
+        </mat-form-field>
+  
+        <mat-form-field class="margin-left" appearance="outline">
+          <mat-label>Update Date</mat-label>
+          <input startAt="updateDate" name="updateStockInDate" [(ngModel)]="stock.updateStockInDate" matInput [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+      </div>
+
+      <div class="row_text">
+        <b>SHOP PRODUCT</b> 
+      </div>
+      <div class="row">
+        
+        <mat-form-field class="margin-left" appearance="outline">
+          <mat-label>New Product Amount </mat-label>
+          <input name="newShelfProductAmount" [(ngModel)]="stock.newShelfProductAmount" matInput placeholder="Enter Here">
+        </mat-form-field>
+
+        <mat-form-field class="margin-left" appearance="outline">
+          <mat-label>Present Product Amount </mat-label>
+          <input name="shopProductAmount" [(ngModel)]="stock.shopProductAmount" readonly matInput placeholder="Enter Here">
+        </mat-form-field>
+  
+        <mat-form-field class="margin-left" appearance="outline">
+          <mat-label>Shelf No </mat-label>
+          <input name="shopShelfNo" [(ngModel)]="stock.shopShelfNo" matInput placeholder="Enter Here">
+        </mat-form-field>
+  
+  
+        <mat-form-field class="margin-left" appearance="outline">
+          <mat-label>Shelf Level No </mat-label>
+          <input name="shopShelfLevelNo"  [(ngModel)]="stock.shopShelfLevelNo" matInput placeholder="Enter Here">
+        </mat-form-field>
+      </div>
+
+      <div class="row_text"><b> WEAR HOUSE PRODUCT </b></div>
+      <div class="row">
+       
+        <mat-form-field class="margin-left" appearance="outline">
+          <mat-label>New Product Amount </mat-label>
+          <input name="newWearProductAmount" [(ngModel)]="stock.newWearProductAmount" matInput placeholder="Enter Here">
+        </mat-form-field>
+
+        <mat-form-field class="margin-left" appearance="outline">
+          <mat-label>Product Amount </mat-label>
+          <input name="wearHouseProductAmount" [(ngModel)]="stock.wearHouseProductAmount" readonly matInput placeholder="Enter Here">
+        </mat-form-field>
+  
+        <mat-form-field class="margin-left" appearance="outline">
+          <mat-label>Shelf No </mat-label>
+          <input name="wearHouseShelfNo" [(ngModel)]="stock.wearHouseShelfNo"  matInput placeholder="Enter Here">
+        </mat-form-field>
+  
+  
+        <mat-form-field class="margin-left" appearance="outline">
+          <mat-label>Shelf Level No </mat-label>
+          <input name="wearHouseShelfLevelNo" [(ngModel)]="stock.wearHouseShelfLevelNo"  matInput placeholder="Enter Here">
+        </mat-form-field>
+      </div>
+
+      <div mat-dialog-actions class="action">
+        <button mat-raised-button color="primary" type="submit">Stock In</button>
+        <button mat-raised-button color="primary">Cancel</button>
+      </div>
   </div>
 </form>

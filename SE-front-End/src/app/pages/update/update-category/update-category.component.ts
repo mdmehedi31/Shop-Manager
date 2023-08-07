@@ -14,6 +14,7 @@ export class UpdateCategoryComponent implements OnInit{
   catId=0;
   category:any;
 
+  
   constructor(private categoryService: AddCategoryService,
                 private route: ActivatedRoute,
                 private router: Router ){

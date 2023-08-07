@@ -1,85 +1,90 @@
 
+.mat-dialog-title{
+  text-align: center;
+  margin-top: 30px;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
 
 .content{
-    padding-top: 10px;
-    width: 100%;
-  }
+  padding-top: 10px;
+  width: 100%;
+}
+
+.row{
+  display: flex;
+  gap: 10px;
+}
+
+mat-form-field{
+  width: 100%;
+}
+
+.action{
+  padding: 0px 25px 20px;
+   button{
+    flex: 1 1;
+   }
+}
+
+.row_text{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: cadetblue;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+
+
+/* .margin-left{
+    
+    margin-left: 5px;
+    width: 80%;
+}
+
+
+.split {
+    
+    height: 100%;
+    width: 60%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  } */
   
-  .row{
-    display: flex;
-    gap: 10px;
-  }
+  /* Control the left side */
+  /* .left {
+    left: 0;
+    
+  } */
   
-  mat-form-field{
-    width: 100%;
-  }
+  /* Control the right side */
+  /* .right {
+    right: 0;
+    
+  } */
   
-  .action{
-    padding: 0px 25px 20px;
-     button{
-      flex: 1 1;
-     }
-  }
-  
-  .row_text{
+
+  /* If you want the content centered horizontally and vertically */
+  /* .centered {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    background-color: cadetblue;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
+  } */
   
+
+/* 
+  .stockin_table{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  } */
   
-  
-  
-  /* .margin-left{
-      
-      margin-left: 5px;
-      width: 80%;
-  }
-  
-  
-  .split {
-      
-      height: 100%;
-      width: 60%;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      overflow-x: hidden;
-      padding-top: 20px;
-    } */
-    
-    /* Control the left side */
-    /* .left {
-      left: 0;
-      
-    } */
-    
-    /* Control the right side */
-    /* .right {
-      right: 0;
-      
-    } */
-    
-  
-    /* If you want the content centered horizontally and vertically */
-    /* .centered {
-      position: absolute;
-      top: 50%;
-      left: 40%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-    } */
-    
-  
-  /* 
-    .stockin_table{
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    } */
-    
-  
-  
-  
+
+

@@ -20,7 +20,7 @@ public class StockInRequest {
     private Date stockInDate;
     private String stockInBy;
     private String productDescription;
-    private Long totalProduct;
+    private int totalProduct;
     private double unitPrice;
     private double totalProductPrice;
     private double unitSellingPrice;
@@ -30,7 +30,8 @@ public class StockInRequest {
     private int wearHouseProductAmount;
     private String wearHouseShelfNo;
     private String wearHouseShelfLevelNo;
-    private Double newRate;
-    private Long newProductAmount;
+    private Double newUnitRate;
+    private int newProductAmount;
+    private Date updateStockInDate;
 
 }
