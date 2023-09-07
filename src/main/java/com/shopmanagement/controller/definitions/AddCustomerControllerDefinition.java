@@ -12,8 +12,6 @@ import java.util.List;
 @RequestMapping("/add-customer")
 @CrossOrigin("*")
 public interface AddCustomerControllerDefinition {
-
-
     @RequestMapping("/create")
     public void addCustomer(@RequestBody AddCustomerRequest addCustomerRequest);
     @RequestMapping("/customer-list")
