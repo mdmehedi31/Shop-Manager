@@ -30,4 +30,5 @@ public interface StockInServiceDefinition {
 
    Boolean isExistByCategoryNameAndBrandNameAndProductName(String categoryName,String brandName,String productName);
 
+   double getPriceByProductNameBrandNameCategoryName(String productName, String brandName, String categoryName);
 }

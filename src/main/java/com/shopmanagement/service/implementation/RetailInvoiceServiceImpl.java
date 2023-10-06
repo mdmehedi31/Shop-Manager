@@ -2,6 +2,7 @@ package com.shopmanagement.service.implementation;
 
 
 import com.shopmanagement.dto.request.RetailInvoiceRequest;
+import com.shopmanagement.dto.response.RetailInvoiceResponse;
 import com.shopmanagement.entity.RetailInvoice;
 import com.shopmanagement.entity.RetailInvoiceProduct;
 import com.shopmanagement.repository.RetailInvoiceProductRepository;
@@ -11,7 +12,10 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
+import java.util.Stack;
 
 
 @Service
@@ -60,7 +64,8 @@ public class RetailInvoiceServiceImpl implements RetailInvoiceServiceDefinition 
         retailInvoice.setCustomerName(retailInvoiceRequest.getCustomerName());
         retailInvoice.setCustomerAddress(retailInvoiceRequest.getCustomerAddress());
         retailInvoice.setCustomerPhoneNumber(retailInvoiceRequest.getCustomerPhoneNumber());
-        retailInvoice.setSalesDate(retailInvoiceRequest.getLocalDateTime());
+      //  retailInvoice.setSalesDate(retailInvoiceRequest.getLocalDateTime());
+        retailInvoice.setSalesDate(LocalDateTime.now());
        // retailInvoice.setProduct(retailInvoiceRequest.getProduct());
         retailInvoice.setTotalProductQty(retailInvoiceRequest.getTotalProductQty());
         retailInvoice.setTotalPayment(retailInvoiceRequest.getTotalPayment());
@@ -70,5 +75,15 @@ public class RetailInvoiceServiceImpl implements RetailInvoiceServiceDefinition 
 
 
         return retailInvoice;
+    }
+
+    @Override
+    public List<RetailInvoiceResponse> getRetailInvoiceProduct() {
+
+        List<RetailInvoiceResponse> getList= new Stack<>();
+
+       /// RetailInvoice retailInvoice=
+
+        return null;
     }
 }

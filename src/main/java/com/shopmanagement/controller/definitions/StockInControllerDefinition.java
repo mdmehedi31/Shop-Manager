@@ -37,4 +37,6 @@ public interface StockInControllerDefinition {
 
     //List<String> getOriginByCategoryAndBrandNameAndProductName();
 
+    @RequestMapping("/get-unit-selling-price/{productName}/{brandName}/{categoryName}")
+    double getUnitSellingPriceByProductNameAndBrandNameAndCategoryName(@PathVariable String productName, @PathVariable String brandName, @PathVariable String categoryName);
 }

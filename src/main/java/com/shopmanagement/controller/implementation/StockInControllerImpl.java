@@ -75,4 +75,12 @@ public class StockInControllerImpl implements StockInControllerDefinition {
 
         return stockInServiceDefinition.getOriginByCategoryName(categoryName);
     }
+
+    @Override
+    public double getUnitSellingPriceByProductNameAndBrandNameAndCategoryName(String productName, String brandName,
+                                                                              String categoryName) {
+
+        System.out.println("Product Name"+productName+", brandName "+brandName+" categoryName "+categoryName);
+        return stockInServiceDefinition.getPriceByProductNameBrandNameCategoryName(productName,brandName,categoryName);
+    }
 }

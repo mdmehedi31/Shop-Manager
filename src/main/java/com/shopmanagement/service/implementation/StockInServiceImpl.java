@@ -199,6 +199,16 @@ public class StockInServiceImpl implements StockInServiceDefinition {
 
     }
 
+    @Override
+    public double getPriceByProductNameBrandNameCategoryName(String productName, String brandName, String categoryName) {
+
+        double price;
+
+        price= this.stockInRepository.getUnitSellingPriceByProductNameAndBrandNameAndCategoryName(productName,brandName,categoryName);
+        System.out.println("Price is "+price);
+        return price;
+    }
+
 
     private StockInEntity dtoToEntityUpdateStockIn(StockInRequest stockInRequest){
 
