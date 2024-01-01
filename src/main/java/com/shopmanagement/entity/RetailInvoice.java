@@ -5,17 +5,16 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.Set;
 
 
 @Getter
 @Setter
 @Entity
-@Table(name = "tbretail-invoice")
+@Table(name = "tbretail_invoice")
 public class RetailInvoice {
 
     @Id
-    @Column(name = "rvId")
+    @Column(name = "rv_Id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long rvId;
 
@@ -29,17 +28,6 @@ public class RetailInvoice {
     private String customerPhoneNumber;
     @Column(name = "sales_date")
     private LocalDateTime salesDate;
-//
-//    @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true)
-//    @JoinTable(name = "status_attachments",
-//            joinColumns = {@JoinColumn(name = "status_id", referencedColumnName = "id")},
-//            inverseJoinColumns = {@JoinColumn(name = "attachment_id", referencedColumnName = "id")})
-//    private List<Attachment> statusAttachmentList;
-
-
-    @OneToMany(orphanRemoval = true, mappedBy = "retId")
-    private Set<RetailInvoiceProduct> retailInvoiceProductList;
-
     @Column(name = "total_payment")
     private Double totalPayment;
     @Column(name = "due_payment")

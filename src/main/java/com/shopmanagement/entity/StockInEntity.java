@@ -45,7 +45,7 @@ public class StockInEntity {
     private String origin;
 
     @Column(name = "total_product")
-    private int totalProduct;
+    private Integer totalProduct;
 
     @Column(name="unit_price")
     private double unitPrice;

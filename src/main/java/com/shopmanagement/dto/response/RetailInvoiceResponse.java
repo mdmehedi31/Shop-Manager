@@ -1,11 +1,10 @@
 package com.shopmanagement.dto.response;
 
-import com.shopmanagement.entity.RetailInvoiceProduct;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,15 +14,13 @@ public class RetailInvoiceResponse {
 
     private String customerName;
 
-
     private String customerAddress;
-
 
     private String customerPhoneNumber;
 
-    private LocalDateTime localDateTime;
+    private LocalDateTime salesDate;
 
-    private Set<RetailInvoiceProduct> retailInvoiceProduct;
+    private List<RetailInvoiceProductResponse> retailInvoiceProduct;
 
     private Double totalPayment;
 

@@ -6,41 +6,21 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+
+import java.util.List;
 import java.util.Set;
 
 @Getter
 @Setter
 public class RetailInvoiceRequest {
-
-
-
-    private Long rvId;
-
-            private String customerName;
-
-
-            private String customerAddress;
-
-
-            private String customerPhoneNumber;
-
-            private LocalDateTime localDateTime;
-
-            private Set<RetailInvoiceProduct> retailInvoiceProduct;
-
-            private Double totalPayment;
-
-            private Double duePayment;
-            private Long totalProductQty;
-
-    public LocalDateTime getLocalDateTime() {
-        return localDateTime;
-    }
-
-    public void setLocalDateTime(LocalDateTime localDateTime) {
-        this.localDateTime = localDateTime;
-    }
+    private String customerName;
+    private String customerAddress;
+    private String customerPhoneNumber;
+    private List<RetailInvoiceProductRequest> retailInvoiceProduct;
+    private Double totalPayment;
+    private Double duePayment;
+    private Long totalProductQty;
+    private String invoiceNo;
 }
 
 

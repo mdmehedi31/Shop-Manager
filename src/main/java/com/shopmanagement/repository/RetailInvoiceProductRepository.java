@@ -3,6 +3,8 @@ package com.shopmanagement.repository;
 import com.shopmanagement.entity.RetailInvoiceProduct;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface RetailInvoiceProductRepository extends JpaRepository<RetailInvoiceProduct,Long> {
+import java.util.List;
 
+public interface RetailInvoiceProductRepository extends JpaRepository<RetailInvoiceProduct,Long> {
+    List<RetailInvoiceProduct> findAllByRvId(Long rvId);
 }

@@ -16,9 +16,6 @@ public class RetailInvoiceProduct {
     @Column(name = "prodID")
     private Long prodId;
 
-//    @ManyToOne(mappedBy="")
-//    private RetailInvoice retailInvoice;
-
     @Column(name = "categoryName")
     private String categoryName;
     @Column(name = "brandName")
@@ -26,13 +23,11 @@ public class RetailInvoiceProduct {
     @Column(name = "productName")
     private String productName;
     @Column(name = "qty")
-    private int qty;
+    private Integer qty;
     @Column(name = "productPrice")
-    private Long productPrice;
+    private double productPrice;
     @Column(name = "totalProductPrice")
-    private Long totalProductPrice;
-
-    @ManyToOne
-    @JoinColumn(name = "rvId")
-    private RetailInvoice retId;
+    private double totalProductPrice;
+    @Column(name = "rvId")
+    private Long rvId;
 }

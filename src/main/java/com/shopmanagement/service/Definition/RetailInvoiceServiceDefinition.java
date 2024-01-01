@@ -14,7 +14,8 @@ public interface RetailInvoiceServiceDefinition {
 
     RetailInvoice dtoToEntity(RetailInvoiceRequest retailInvoiceRequest);
 
-    List<RetailInvoiceResponse> getRetailInvoiceProduct();
+    List<RetailInvoiceResponse> getAllRetailInvoiceProduct();
 
+    public RetailInvoiceResponse getRetailInvoiceByInvoiceNo(String invoiceNo);
 
 }
